@@ -7,4 +7,19 @@ I.Mise en place d'un template pour la structure Vue:
     3.footer:
         -mettre le footer et le header dans un dossier séparé du corps des pages
     
+II.Fonctionnalité 1:
+
+1.backOffice:
+    Base de donnée:(Postgres)
+        -Création de la base de donnée "kotranas3" OK
+        -Creation de la table "users"(id,username,email,password,created_at) OK
+        Création de la table "categorie"(id,categorie)  OK
+
+    Fonction;
+        -Créer une fonction pour le login(ne pas oublier de hacher le pwd)
+        -Créer une fonction pour lister les catégorie(spécifique à l'admin)
+
+    Vue:
+        -formulaire de login dans login.php
+        -page d'acceuil :accueil.php
     

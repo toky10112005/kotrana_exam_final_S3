@@ -10,22 +10,26 @@ class UserModel {
     // Properties
     public $id;
     public $username;
+    public $email;
+    public $password;
     public $created_at;
     
-    public function __construct($db, $username) {
+    public function __construct($db,$username, $email, $password) {
         $this->db = $db;
         $this->username = $username;
+        $this->email = $email;
+        $this->password = $password;
     }
     
     /**
      * Get all users
      */
-    public function getAll() {
-        $query = "SELECT * FROM {$this->table} ORDER BY createdAt DESC";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
+    // public function getAll() {
+    //     $query = "SELECT * FROM {$this->table} ORDER BY createdAt DESC";
+    //     $stmt = $this->db->prepare($query);
+    //     $stmt->execute();
+    //     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    // }
     
     /**
      * Get user by ID
@@ -57,23 +61,39 @@ class UserModel {
         }
         
         $query = "INSERT INTO {$this->table} 
-                  (username,created_at) 
+                  (username,email,password,created_at) 
                   VALUES 
-                  (:username, NOW())";
+                  (:username,:email,:password,NOW())";
         
         $stmt = $this->db->prepare($query);
         
         $stmt->bindParam(':username', $this->username);
-    
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':password', $this->password);
+        
         return $stmt->execute();
     }
 
 
     /*  Check users*/
-    public function CheckUser($username){
-        $query ="SELECT * FROM {$this->table} WHERE username=:username";
+    public function CheckUser($username,$password){
+        $password=password_hash($password, PASSWORD_DEFAULT);
+        $query ="SELECT * FROM {$this->table} WHERE username=:username AND password=:password";
         $stmt=$this->db->prepare($query);
         $stmt->bindParam(':username',$username);
+        $stmt->bindParam(':password',$password);
+        $stmt->execute();
+        $result=$stmt->fetch(\PDO::FETCH_ASSOC);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function checkEmail($email){
+        $query ="SELECT * FROM {$this->table} WHERE email=:email";
+        $stmt=$this->db->prepare($query);
+        $stmt->bindParam(':email',$email);
         $stmt->execute();
         $result=$stmt->fetch(\PDO::FETCH_ASSOC);
         if($result){
@@ -86,20 +106,20 @@ class UserModel {
     /**
      * Update user
      */
-    public function update() {
+    // public function update() {
         
-        $query = "UPDATE {$this->table} 
-                  SET username = :username
-                  WHERE id = :id";
+    //     $query = "UPDATE {$this->table} 
+    //               SET username = :username
+    //               WHERE id = :id";
         
-        $stmt = $this->db->prepare($query);
+    //     $stmt = $this->db->prepare($query);
         
-        $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':username', $this->username);
+    //     $stmt->bindParam(':id', $this->id);
+    //     $stmt->bindParam(':username', $this->username);
         
         
-        return $stmt->execute();
-    }
+    //     return $stmt->execute();
+    // }
     
     
     /**
@@ -112,7 +132,6 @@ class UserModel {
         return $stmt->execute();
     }
     
-  
     
     /**
      * Validate user data
@@ -122,6 +141,11 @@ class UserModel {
         if (empty($this->username) || strlen($this->username) < 3) {
             return false;
         }
+        if(empty($this->password) || strlen($this->password) < 6){
+            return false;
+        }
+
+       $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         
         return true;
     }

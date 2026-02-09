@@ -14,24 +14,24 @@ class UserController {
 		$this->app = $app;
 	}
 
-    public function CheckUser($username){
+    public function CheckUser($username,$email,$password){
         $db = Flight::db();
 
-        $users = new UserModel($db, $username);
+        $users = new UserModel($db, $username, $email, $password);
 
-        $result=$users->CheckUser($username);
+        $result=$users->CheckUser($username,$password);
         if($result){
             $id=$users->getByName($username);
             return ['nom'=>$username,'id'=>$id['id']];
         }
         else{
-            $this->InsertUsers($username);
+            $this->InsertUsers($username,$email,$password);
             return ['nom'=>$username,'id'=>$users->getByName($username)['id']];
         }
         
     }
 
-    public function InsertUsers($username){
+    public function InsertUsers($username,$email,$password){
         $db = $this->app->db();
         $users = new UserModel($db, $username);
 
