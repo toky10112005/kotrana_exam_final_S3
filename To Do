@@ -41,19 +41,31 @@ II.Fonctionnalité 1:
         -Creation de la table "users"(id,username,email,password,created_at) OK
         -Création de la table "categorie"(id,categorie)  OK
         -Créer une table à part pour l'admin    OK
-        Création de la table products En cours   OK
+       
 
     Fonction;
         -Créer une fonction pour le login(ne pas oublier de hacher le pwd)  OK
         -Créer une fonction pour lister les catégorie(spécifique à l'admin) OK
-        -Fonction pour lister les catégorie En cours
-        -Fonction pour lister les produits d'un categorie(argumetn id dynamique)
+    
 
 
     Vue:
         -formulaire de login dans login.php OK
         -page d'acceuil :accueil.php    OK
+        
+
+        Création du Model:"CategorieModel.php"  OK
+
+    Base de données:
+        - Création de la table products OK
+    Fonction:
+        -Fonction pour lister les catégorie (dans CategorieModel.php) OK
+        -Fonction pour lister les produits d'un categorie(argumetn id dynamique)    
+    Vue:
         -redirection de l'admin dans categorie.php OK
+        -lister les catégories dans cette page sous forme de liste déroulente   En cours
+        -afficher tous les produits correspondant à une catégorie choisis
+
 
     
 

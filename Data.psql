@@ -36,6 +36,23 @@ CREATE TABLE products (
     picture VARCHAR(20) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+INSERT INTO products (id_user, id_categorie, name, description, price, picture, created_at)
+VALUES 
+(1, 1, 'iPhone 15', 'Dernier smartphone Apple, 128Go Noir.', 999.00, 'iphone15.jpg', NOW()),
+(1, 1, 'Samsung S23', 'Écran AMOLED 120Hz, triple capteur photo.', 850.00, 's23.png', NOW()),
+(2, 2, 'Table en Chêne', 'Table artisanale pour 6 personnes.', 450.00, 'table_chene.jpg', NOW()),
+(2, 2, 'Canapé Velours', 'Canapé 3 places, bleu canard, très confortable.', 720.50, 'sofa.jpg', NOW()),
+(3, 3, 'Roman Noir', 'Thriller psychologique par un auteur célèbre.', 19.90, 'livre_roman.jpg', NOW()),
+(3, 3, 'Livre de Cuisine', '100 recettes faciles pour débutants.', 25.00, 'cuisine.png', NOW()),
+(4, 1, 'Casque Sony XM5', 'Réduction de bruit active haut de gamme.', 349.99, 'sony_xm5.jpg', NOW()),
+(1, 2, 'Lampe de Bureau', 'Lampe LED articulée avec chargeur sans fil.', 45.00, 'lampe.jpg', NOW()),
+(5, 3, 'BD Asterix', 'Le dernier tome des aventures gauloises.', 12.50, 'asterix.jpg', NOW()),
+(2, 1, 'Clavier Mécanique', 'Switchs MX Brown, rétroéclairage RGB.', 110.00, 'keyboard.jpg', NOW()),
+(4, 2, 'Tapis Berbère', 'Tapis en laine fait main, 200x300cm.', 210.00, 'tapis.png', NOW()),
+(1, 1, 'MacBook Air M2', 'Ultra-fin, 8Go RAM, 256Go SSD.', 1199.00, 'macbook.jpg', NOW()),
+(3, 3, 'Atlas Géographique', 'Édition 2024 avec cartes haute définition.', 35.00, 'atlas.jpg', NOW()),
+(5, 2, 'Chaise Ergonomique', 'Parfaite pour le télétravail prolongé.', 185.00, 'chaise.jpg', NOW()),
+(2, 1, 'Souris Gamer', 'Capteur 25k DPI, 11 boutons programmables.', 65.00, 'mouse.png', NOW());
 
 
 
