@@ -27,7 +27,8 @@ $router->group('', function(Router $router) use ($app) {
 	$result=$userController->CheckUser($username,$email,$password);
 
 	if(isset($result['isAdmin']) && $result['isAdmin']==true){
-		$app->render('categorie',['username'=>$result['donnees']['username'],'id'=>$result['donnees']['id']]);
+		
+		$app->render('categorie',['username'=>$result['donnees']['username'],'id'=>$result['donnees']['id']],);
 		return;
 	}else{
 		if(isset($result['error'])){

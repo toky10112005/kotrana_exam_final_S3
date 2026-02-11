@@ -41,19 +41,19 @@ II.Fonctionnalité 1:
         -Creation de la table "users"(id,username,email,password,created_at) OK
         -Création de la table "categorie"(id,categorie)  OK
         -Créer une table à part pour l'admin    OK
-        Création de la table product En cours
+        Création de la table products En cours   OK
 
     Fonction;
         -Créer une fonction pour le login(ne pas oublier de hacher le pwd)  OK
         -Créer une fonction pour lister les catégorie(spécifique à l'admin) OK
-        -Fonction pour lister les catégorie
+        -Fonction pour lister les catégorie En cours
         -Fonction pour lister les produits d'un categorie(argumetn id dynamique)
 
 
     Vue:
         -formulaire de login dans login.php OK
         -page d'acceuil :accueil.php    OK
-        -redirection de l'admin dans categorie.php En cours
+        -redirection de l'admin dans categorie.php OK
 
     
 
