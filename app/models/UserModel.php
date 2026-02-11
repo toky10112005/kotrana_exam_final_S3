@@ -43,7 +43,7 @@ class UserModel {
 
         if($user){
             if(password_verify($this->password,$user['password'])){
-                return ['error'=>'Login successful','id'=>$user['id']];
+                return ['username'=>$user['username'],'id'=>$user['id']];
             }else{
                 return ['error'=>'Invalid password'];
             }
@@ -102,7 +102,13 @@ class UserModel {
 
        if($result){
         if(password_verify($this->password,$result['password'])){
-            return $result;
+
+            $valiny=[
+                'isAdmin'=>true,
+                'donnees'=>$result
+            ];
+
+            return $valiny;
         }else{
             return false;
         }

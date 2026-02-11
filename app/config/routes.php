@@ -26,10 +26,15 @@ $router->group('', function(Router $router) use ($app) {
 
 	$result=$userController->CheckUser($username,$email,$password);
 
-	if(isset($result['error'])){
-		$app->render('login',['error'=>$result['error']]);
+	if(isset($result['isAdmin']) && $result['isAdmin']==true){
+		$app->render('categorie',['username'=>$result['donnees']['username'],'id'=>$result['donnees']['id']]);
+		return;
 	}else{
-		$app->render('messages',['username'=>$result['username'],'id'=>$result['id']]);
+		if(isset($result['error'])){
+			$app->render('login',['error'=>$result['error']]);
+		}else{
+			$app->render('messages',['username'=>$result['username'],'id'=>$result['id']]);
+		}
 	}
 });
 

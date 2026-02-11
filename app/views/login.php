@@ -6,6 +6,7 @@
     <title>login</title>
 </head>
 <body>
+    <h1><?php echo $error ?? ''; ?></h1>
     <h1>Login Form</h1>
     <form action="/LoginForm" method="get">
         <label for="username">Username:</label>
