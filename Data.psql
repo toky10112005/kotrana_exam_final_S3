@@ -1,5 +1,13 @@
 CREATE DATABASE kotanas3;
 
+CREATE TABLE admin(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(10) NOT NULL,
+    password VARCHAR(255) NOT NULL 
+);
+/*mot de passe admin: admin*/
+INSERT INTO admin(username,password) VALUES ('admin','$2y$10$wRj6psZKRZgBy4CietdDG.EY2lzMkY.K5ZHFvZYl60vfi3HdC2ywi');
+
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(20) NOT NULL UNIQUE,
@@ -10,8 +18,13 @@ CREATE TABLE users (
 
 CREATE TABLE categorie(
     id SERIAL PRIMARY KEY,
-    categorie INT NOT NULL
+    categorie VARCHAR(20) NOT NULL
 );
+
+INSERT INTO categorie (categorie) VALUES
+('Enfant'),
+('Sport'),
+('Vêtement');
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,

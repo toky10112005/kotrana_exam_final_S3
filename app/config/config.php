@@ -78,7 +78,7 @@ return [
     'driver'   => 'pgsql',          // Important: PostgreSQL driver
     'host'     => 'localhost',      // Database host
     'port'     => 5432,             // Default PostgreSQL port
-    'dbname'   => 'template',   // Database name
+    'dbname'   => 'kotranas3',   // Database name
     'user'     => 'itu',  // Database user
     'password' => 'itu',  // Database password
 

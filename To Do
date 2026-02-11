@@ -1,3 +1,25 @@
+
+A tous:Mila manao installation driver pgsl pour connexion postgres
+
+d atao anzao ny ao @conf.php: 
+    'driver'   => 'pgsql',          // Important: PostgreSQL driver
+    'host'     => 'localhost',      // Database host
+    'port'     => 5432,             // Default PostgreSQL port
+    'dbname'   => 'kotranas3',   // Database name
+    'user'     => 'itu',  // Database user
+    'password' => 'itu',  // Database password
+
+
+
+Roger:
+    Vue:
+            -Dans login.php:
+            -trouver un template adapter au projet 'takalo takalo'
+            -Gérer les affichage d'érreur dans la page(nom de variable:error);
+            -Implémentér des fonctionnalité JS(au choix)
+
+            -Créer la page categorie.php(après le login d'un admin il sera rediriger ici)
+
 I.Mise en place d'un template pour la structure Vue:
     -Recherche d'un template pout un site d'achat "Takalo-takalo"
     1.Login:
@@ -6,20 +28,39 @@ I.Mise en place d'un template pour la structure Vue:
         -une page principale
     3.footer:
         -mettre le footer et le header dans un dossier séparé du corps des pages
+
     
+
+Toky:
+
 II.Fonctionnalité 1:
 
 1.backOffice:
     Base de donnée:(Postgres)
         -Création de la base de donnée "kotranas3" OK
         -Creation de la table "users"(id,username,email,password,created_at) OK
-        Création de la table "categorie"(id,categorie)  OK
+        -Création de la table "categorie"(id,categorie)  OK
+        -Créer une table à part pour l'admin    OK
+        Création de la table product En cours
 
     Fonction;
-        -Créer une fonction pour le login(ne pas oublier de hacher le pwd)
-        -Créer une fonction pour lister les catégorie(spécifique à l'admin)
+        -Créer une fonction pour le login(ne pas oublier de hacher le pwd)  OK
+        -Créer une fonction pour lister les catégorie(spécifique à l'admin) OK
+        -Fonction pour lister les catégorie
+        -Fonction pour lister les produits d'un categorie(argumetn id dynamique)
+
 
     Vue:
-        -formulaire de login dans login.php
-        -page d'acceuil :accueil.php
+        -formulaire de login dans login.php OK
+        -page d'acceuil :accueil.php    OK
+        -redirection de l'admin dans categorie.php En cours
+
+    
+
+Anthony:
+Focus dans la partie page admin:
+    (Ela no manao ny To do anla ..ataovy détaillé..ela zany partie 2 no ataonla)
+    (tsy el ano manao ny affichage f teneno eto ny nom de variable d'affichage nampiasainla)
+    (f verifieo faona ny code zay vao alefa sao d misy erreur)
+
     

@@ -14,15 +14,24 @@ use flight\net\Router;
 $router->group('', function(Router $router) use ($app) {
 
 	$router->map('/', function() use ($app) {
-		$app->render('forms');
+		$app->render('login');
 	});
 
 	$router->get('/LoginForm', function() use ($app){
-		$user=new UserController($app);
-		$username=$_GET['username'];
-		$result=$user->CheckUser($username);
-		$app->render('messages', ['username'=>$result['nom'],'id'=>$result['id']]);
-	});
+	$username=$_GET['username']??'';
+	$email=$_GET['email']??'';
+	$password=$_GET['password']??'';
+
+	$userController=new UserController($app);
+
+	$result=$userController->CheckUser($username,$email,$password);
+
+	if(isset($result['error'])){
+		$app->render('login',['error'=>$result['error']]);
+	}else{
+		$app->render('messages',['username'=>$result['username'],'id'=>$result['id']]);
+	}
+});
 
 	// $router->get('/hello-world/@name', function($name) {
 	// 	echo '<h1>Hello world! Oh hey '.$name.'!</h1>';
