@@ -67,6 +67,27 @@ $router->group('', function(Router $router) use ($app) {
 		}
 	});
 
+	$router->get('/Liste',function() use ($app){
+
+		$IDcategorie=$_GET['categorie'] ?? 1;
+
+		if($IDcategorie!=0){
+		 	$listProduct=new ProductController($app);
+		 	$listProducts=$listProduct->getProductWithNameProp($IDcategorie);
+
+			$listeCategorie=new CategoreController($app);
+			$listeCategorie=$listeCategorie->ListCategorie();
+
+			$app->render('ListObjet',['username'=>$_GET['username'],'id'=>$_GET['id'],'categories'=>$listeCategorie,'products'=>$listProducts]);
+		}
+		else{
+			
+			//raha 0 le ID d eto no apoitra ilay fionctionalité
+
+		}
+		
+	} );
+
 	
 
 	// $router->get('/hello-world/@name', function($name) {

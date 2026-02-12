@@ -73,11 +73,11 @@ II.FrontOffice:
     Fonction:
         -Créer une fonction dans ProductModel.php pour retourner seulement les objets   d'un utilisateur selon son id   OK
         -Configurer route pour utilisé la fonction et pointer ver objet.php OK
+        -créer une nouvelle route pointant vers listobjet.php En cours
 
     Vue:
     -objet.php pour afficher ces objets.    OK
-
-
+    -listobjet.php pour afficher les objets utilisateur selon un filtre
 
     
 
