@@ -39,7 +39,9 @@ $router->group('', function(Router $router) use ($app) {
 			if(isset($result['error'])){
 				$app->render('login',['error'=>$result['error']]);
 			}else{
-				$app->render('messages',['username'=>$result['username'],'id'=>$result['id']]);
+				$productList=new ProductController($app);
+				$ProductList=$productList->getProductUser($result['id']);
+				$app->render('objet',['username'=>$result['username'],'id'=>$result['id'],'listProduct'=>$ProductList]);
 			}
 		}
 	});
@@ -50,16 +52,22 @@ $router->group('', function(Router $router) use ($app) {
 		//in raha ohatra ka tsisy eto
 
 	}else{
-		$listProduct=new ProductController($app);
-		$listProducts=$listProduct->getProduct($categorieID);
+		// $listProduct=new ProductController($app);
+		// $listProducts=$listProduct->getProduct($categorieID);
+
+		 $listProduct=new ProductController($app);
+		 $listProducts=$listProduct->getProductWithNameProp($categorieID);
 
 		$listeCategorie=new CategoreController($app);
 		$listeCategorie=$listeCategorie->ListCategorie();
+
 
 		$app->render('categorie',['username'=>$_GET['username'],'id'=>$_GET['id'],'categories'=>$listeCategorie,'products'=>$listProducts]);
 		
 		}
 	});
+
+	
 
 	// $router->get('/hello-world/@name', function($name) {
 	// 	echo '<h1>Hello world! Oh hey '.$name.'!</h1>';

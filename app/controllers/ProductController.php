@@ -17,4 +17,16 @@ class ProductController {
         $productModel = new ProductModel($db, '', $id_categorie, '', '', '', '');
         return $productModel->getProduct($id_categorie);
     }
+
+    public function getProductWithNameProp($id_categorie){
+          $db = Flight::db();
+        $productModel = new ProductModel($db, '', $id_categorie, '', '', '', '');
+        return $productModel->getProductwithNameProp($id_categorie);
+    }
+
+    public function getProductUser($id_user){
+        $db = Flight::db();
+        $productModel = new ProductModel($db, $id_user, '', '', '', '', '');
+        return $productModel->getProductUser($id_user);
+    }
 }

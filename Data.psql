@@ -1,5 +1,7 @@
 CREATE DATABASE kotanas3;
 
+/*Créer manuellement 5 utilisateur avant d'insérer les données de Product*/
+
 CREATE TABLE admin(
     id SERIAL PRIMARY KEY,
     username VARCHAR(10) NOT NULL,
@@ -57,5 +59,9 @@ VALUES
 
 
 
-
+SELECT us.username,pro.name,pro.description,pro.price,pro.picture,pro.id_categorie,pro.created_at
+            FROM products AS pro
+            JOIN users AS us
+            ON pro.id_categorie=1
+            AND pro.id_user=us.id;
 

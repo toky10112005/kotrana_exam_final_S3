@@ -48,7 +48,6 @@ II.Fonctionnalité 1:
         -Créer une fonction pour lister les catégorie(spécifique à l'admin) OK
     
 
-
     Vue:
         -formulaire de login dans login.php OK
         -page d'acceuil :accueil.php    OK
@@ -60,11 +59,24 @@ II.Fonctionnalité 1:
         - Création de la table products OK
     Fonction:
         -Fonction pour lister les catégorie (dans CategorieModel.php) OK
-        -Fonction pour lister les produits d'un categorie(argumetn id dynamique)    
+        -Fonction pour lister les produits d'un categorie(argumetn id dynamique)   OK
     Vue:
         -redirection de l'admin dans categorie.php OK
-        -lister les catégories dans cette page sous forme de liste déroulente   En cours
-        -afficher tous les produits correspondant à une catégorie choisis
+        -lister les catégories dans cette page sous forme de liste déroulente   OK
+        -afficher tous les produits correspondant à une catégorie choisis   OK
+        -afficher le propriétaire des produits  :
+            -Créer une fonction getProductWithNameProp dans ProductModel.php et ProductController ,pour retourner aussi l'username des propriétaire OK
+
+II.FrontOffice:
+    Base de donnée:
+
+    Fonction:
+        -Créer une fonction dans ProductModel.php pour retourner seulement les objets   d'un utilisateur selon son id   OK
+        -Configurer route pour utilisé la fonction et pointer ver objet.php OK
+
+    Vue:
+    -objet.php pour afficher ces objets.    OK
+
 
 
     

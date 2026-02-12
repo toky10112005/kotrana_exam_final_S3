@@ -15,10 +15,12 @@ class CategorieModel{
     }
 
     public function ListCategorie(){
+
         $query="SELECT * FROM {$this->table}";
         $stmt=$this->db->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        
     }
 
 

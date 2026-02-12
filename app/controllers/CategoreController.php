@@ -13,8 +13,10 @@ class CategoreController {
     }
 
     public function ListCategorie() {
+
         $db = Flight::db();
         $categorieModel = new CategorieModel($db, '');
         return $categorieModel->ListCategorie();
+        
     }
 }

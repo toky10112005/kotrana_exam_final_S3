@@ -31,6 +31,7 @@
             <li><?= htmlspecialchars($product['price'] ?? '') ?></li>
             <li><?= htmlspecialchars($product['picture'] ?? '') ?></li>
             <li><?= htmlspecialchars($product['created_at'] ?? '') ?></li>
+            <li><?= htmlspecialchars($product['username'] ?? '') ?></li>
         </ul>
 
       <?php }}?>
